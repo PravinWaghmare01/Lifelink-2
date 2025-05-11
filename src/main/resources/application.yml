@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: LifeLink Organ Donation System
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/lifelink?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show-sql: true
+  
+  mvc:
+    static-path-pattern: /static/**
+  
+  resources:
+    static-locations: classpath:/static/
+    cache:
+      period: 0
+  
+  thymeleaf:
+    cache: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /lifelink
+
+app:
+  jwtSecret: lifelinkSecretKey2025OfficialSpringBootApp123!@#
+  jwtExpirationMs: 86400000
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+      hibernate: ERROR
+      organdomation: DEBUG
